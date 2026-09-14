@@ -1,0 +1,31 @@
+{
+  "name": "xeep-dev",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:22-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.11"
+    }
+  },
+  "forwardPorts": [
+    8080,
+    8787
+  ],
+  "portsAttributes": {
+    "8080": {
+      "label": "Agent Bridge",
+      "visibility": "public"
+    },
+    "8787": {
+      "label": "Wrangler Dev",
+      "visibility": "public"
+    }
+  },
+  "postCreateCommand": "bash /workspaces/xeep/.devcontainer/setup_bridge.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "cloudflare.workers-vscode"
+      ]
+    }
+  }
+}
